@@ -23,6 +23,8 @@ services:
     build:
       - composer global require "pantheon-systems/terminus:^2"
     overrides:
+      environment:
+        PHP_IDE_CONFIG: serverName=localhost
       volumes:
         - ${HOME}/.lando/composer_cache:/var/www/.composer
   database:
