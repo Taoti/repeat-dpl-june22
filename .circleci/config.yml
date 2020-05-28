@@ -1,6 +1,9 @@
 defaults: &defaults
   docker:
+    # Only one image is needed/can be used at a time, but if one service is down,
+    # just toggle which one is commented out.
     - image: quay.io/taoticreative/build-tools-ci-docker:prepare-for-pantheon
+    #- image: taoti/build-tools-ci-docker:prepare-for-pantheon
   working_directory: ~/example_drops_8_composer
   environment:
     #=========================================================================
