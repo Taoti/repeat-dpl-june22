@@ -49,7 +49,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.6.1",
+        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
         "drupal/core-dev": "^9.0"
     },
     "conflict": {
