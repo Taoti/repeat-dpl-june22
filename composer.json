@@ -88,7 +88,7 @@
         ],
         "code-fix": [
             "./vendor/bin/phpcbf ./web/modules/custom",
-            "./vendor/bin/phpcbf,source ./web/themes/THEME_NAME"
+            "./vendor/bin/phpcbf ./web/themes/THEME_NAME"
         ],
         "style-sniff": "stylelint \"./web/themes/THEME_NAME/**/*.scss\"",
         "style-fix": "stylelint \"./web/themes/THEME_NAME/**/*.scss\" --fix",
