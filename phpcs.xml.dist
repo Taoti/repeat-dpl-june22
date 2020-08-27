@@ -8,6 +8,7 @@
   <exclude-pattern>*/node_modules/*</exclude-pattern>
   <exclude-pattern>*/source/*</exclude-pattern>
   <exclude-pattern>*/vendor/*</exclude-pattern>
+  <exclude-pattern>*/README.md</exclude-pattern>
 
   <rule ref="Drupal"/>
 
