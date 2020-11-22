@@ -17,8 +17,8 @@ services:
       - npm install --global gulp-cli stylelint stylelint-no-browser-hacks stylelint-config-standard stylelint-order
       - mkdir -p /root/tmp
       - chmod 666 /root/tmp
-    build:
-      - composer global require "pantheon-systems/terminus:^2"
+      - mkdir -p /app/web/sites/simpletest/browser-output
+      - chmod 777 -R /app/web/sites/simpletest
     overrides:
       environment:
         PHP_IDE_CONFIG: serverName=localhost
