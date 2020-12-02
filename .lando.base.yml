@@ -36,10 +36,12 @@ services:
 tooling:
   npm:
     service: appserver
-    cmd: npm --cwd="/app/web/themes/THEME_NAME"
+    cmd: npm
+    dir: /app/web/themes/THEME_NAME
   gulp:
     service: appserver
-    cmd: gulp --cwd=web/themes/THEME_NAME
+    cmd: gulp
+    dir: /app/web/themes/THEME_NAME
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.
