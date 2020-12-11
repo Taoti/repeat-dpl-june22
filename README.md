@@ -1,5 +1,5 @@
-# Taoti Drupal 8 Composer
-This repository provides a base Drupal 8 setup for Taoti sites, using current tooling and best practices.
+# Taoti Drupal 9 Composer
+This repository provides a base Drupal 9 setup for Taoti sites, using current tooling and best practices.
 
 - [Creating a new site](docs/new-site.md)
 - [Converting from an old non-ci site](docs/site-conversion.md)
