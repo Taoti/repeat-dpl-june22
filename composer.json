@@ -5,6 +5,18 @@
     "license": "MIT",
     "repositories": [
         {
+            "type": "vcs",
+            "url": "https://github.com/Taoti/repeat-cli/"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/Taoti/REPEAT/"
+        },
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        },
+        {
             "type": "composer",
             "url": "https://packages.drupal.org/8"
         }
@@ -44,14 +56,16 @@
         "drupal/video_embed_field": "^2.0",
         "drupal/view_modes_display": "^2.0",
         "drush/drush": "^10.0",
+        "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^9.0",
         "pantheon-systems/quicksilver-pushback": "^2.0",
-        "rvtraveller/qs-composer-installer": "^1.1",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
         "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-        "drupal/core-dev": "^9.0"
+        "drupal/core-dev": "^9.0",
+        "taoti/repeat": "dev-master",
+        "taoti/repeat-cli": "dev-master"
     },
     "conflict": {
             "drupal/drupal": "*"
@@ -124,7 +138,12 @@
     "extra": {
         "installer-paths": {
             "web/core": ["type:drupal-core"],
-            "web/libraries/{$name}": ["type:drupal-library"],
+            "web/libraries/colorbox": ["npm-asset/jquery-colorbox"],
+            "web/libraries/{$name}": [
+                "type:bower-asset",
+                "type:npm-asset",
+                "type:drupal-library"
+            ],
             "web/modules/contrib/{$name}": ["type:drupal-module"],
             "web/profiles/contrib/{$name}": ["type:drupal-profile"],
             "web/themes/contrib/{$name}": ["type:drupal-theme"],
