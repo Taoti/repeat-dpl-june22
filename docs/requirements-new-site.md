@@ -5,7 +5,8 @@ vary - at minimum you would also need to install a sed replacement, since sed is
 WSL, since terminus runs fine under WSL.
 
 ## Install PHP
-[PHP](https://www.php.net/) is necessary for running composer and terminus locally. You should have PHP 7.2 or higher.
+[PHP](https://www.php.net/) is necessary for running composer and terminus locally. You should have PHP 7.3 or higher.
+You also need to have the PHP gd and curl extensions installed.
 
 * **MAC OS**: Mac comes with PHP by default. However, it may be outdated. If so, see [official install instructions](
 https://www.php.net/manual/en/install.macosx.packages.php)
