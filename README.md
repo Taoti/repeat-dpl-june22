@@ -17,6 +17,7 @@ This repository provides a base Drupal 9 setup for Taoti sites, using current to
     + [Too long with no output (exceeded 10m0s)](#too-long-with-no-output--exceeded-10m0s-)
     + [codeserver.dev.[numbers and dashes]@codeserver.dev.[numbers and dashes].drush.in's password:](#codeserverdevnumbers-and-dashescodeserverdevnumbers-and-dashesdrushins-password)
     + [Client error: `GET https://api.github.com/...](#client-error-get-httpsapigithubcom)
+    + [Client error: `Post https://terminus.pantheon.io/...](#client-error-post-httpsterminuspantheonio)
   * [Lando Errors](#lando-errors)
   * [Debugging PHP Issues](#debugging-php-issues)
     + [XDebug](#xdebug)
@@ -36,7 +37,7 @@ tools provided by Lando that you will be working with include:
 [Composer](https://getcomposer.org/) is a dependency manager for PHP that allows us to perform a multitude of tasks;
 everything from creating a Drupal project to declaring libraries and even installing contributed modules. The advantage
 of using Composer is that it allows us to quickly install and update dependencies by simply running a few commands from
-a terminal window. 
+a terminal window.
 
 ### Node & NPM
 [Node](https://nodejs.org/en/) is a cross platform runtime environment for creating server side and networking
@@ -82,7 +83,7 @@ be of use during normal development. Commands sorted alphabetically, with the mo
   - `lando npm`: Runs npm commands
   - `lando php`: Runs php commands
   - `lando poweroff`: Spins down all lando related containers
-  - **`lando pull`: Pull code, database and/or files from Pantheon - most commonly as `lando pull -c none -d live -f 
+  - **`lando pull`: Pull code, database and/or files from Pantheon - most commonly as `lando pull -c none -d live -f
   none`** to get the latest database from pantheon's live site.
   - `lando push`: Push code, database and/or files to Pantheon
   - `lando rebuild`: Rebuilds your app from scratch, preserving data
@@ -167,7 +168,7 @@ someone deleted the generated SSH key from their account. To fix this:
 - If desired, remove the previous ssh key.
 
 #### Client error: `GET https://api.github.com/`:
-Full error message will be something like 
+Full error message will be something like
 ```
 [error]  Client error: `GET https://api.github.com/repos/Taoti/earth-lab-cu/pulls?state=all` resulted in a `404 Not Found` response:
 {"message":"Not Found","documentation_url":"https://developer.github.com/v3/pulls/#list-pull-requests"}
@@ -175,6 +176,20 @@ Full error message will be something like
 This error message is quite deceptive. It should actually be a 403 Forbidden usually. It means that the Github Token is not being accepted. To fix this:
 - Generate a new Github Token
 - Delete and Replace existing GITHUB_TOKEN environment variable in the project - go to https://circleci.com/gh/Taoti/[your-project]/edit#env-vars
+
+### Client error: `POST https://terminus.pantheon.io/`:
+Full error message will probably be something like
+```
+[error]  Client error: `POST https://terminus.pantheon.io/api/authorize/machine-token` resulted in a `401 Unauthorized` response:
+"Authorization failed. Please check that your machine token is valid."
+```
+This has a couple possible causes:
+1. Pantheon is down/having problems. _Solution_: Wait or talk to pantheon.
+2. Machine token is invalid. If so this most likely means someone invalidated their machine token or there was staff changover.
+Fixing it is quite simple, go to the Environment Variables page in project settings on cirleci
+ex: https://app.circleci.com/settings/project/github/Taoti/PROJECT-ID/environment-variables,
+delete the `TERMINUS_TOKEN` environment variable and create a new environment variable with the same name
+and a new [Pantheon Machine Token](docs/requirements-new-site.md#pantheon).
 
 ### Lando Errors
 If lando has any errors what so ever, the first step to debugging is:
