@@ -6,6 +6,10 @@
     "repositories": [
         {
             "type": "vcs",
+            "url": "https://github.com/taoti/drupal-ops/"
+        },
+        {
+            "type": "vcs",
             "url": "https://github.com/Taoti/repeat-cli/"
         },
         {
@@ -62,8 +66,7 @@
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
-        "dealerdirect/phpcodesniffer-composer-installer": "^0.7",
-        "drupal/core-dev": "^9.0",
+        "taoti/drupal-ops": "^1.0",
         "taoti/repeat": "dev-master",
         "taoti/repeat-cli": "dev-master"
     },
@@ -157,7 +160,8 @@
         },
         "drupal-scaffold": {
             "allowed-packages": [
-                "pantheon-systems/drupal-integrations"
+                "pantheon-systems/drupal-integrations",
+                "taoti/drupal-ops"
             ],
             "locations": {
                 "web-root": "web/"
