@@ -20,6 +20,7 @@ services:
       - chmod 666 /root/tmp
       - mkdir -p /app/web/sites/simpletest/browser-output
       - chmod 777 -R /app/web/sites/simpletest
+      - /usr/local/bin/composer self-update
     overrides:
       environment:
         PHP_IDE_CONFIG: serverName=localhost
@@ -38,14 +39,6 @@ services:
       image: bitnami/mariadb:10.4.12
 
 tooling:
-  npm:
-    service: appserver
-    cmd: npm
-    dir: /app/web/themes/THEME_NAME
-  gulp:
-    service: appserver
-    cmd: gulp
-    dir: /app/web/themes/THEME_NAME
   xdebug-on:
     service: appserver
     description: Enable xdebug for nginx.

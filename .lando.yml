@@ -3,3 +3,13 @@ name: drupal8
 # config:
 #   site: pantheon site name
 #   id: pantheon site id
+
+tooling:
+  npm:
+    service: appserver
+    cmd: npm
+    dir: /app/web/themes/THEME_NAME
+  gulp:
+    service: appserver
+    cmd: gulp
+    dir: /app/web/themes/THEME_NAME

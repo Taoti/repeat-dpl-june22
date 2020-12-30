@@ -116,7 +116,7 @@ class ScriptHandler
     file_put_contents($info, preg_replace("/name: Mimic/", "name: {$theme_name}", file_get_contents($info)));
     $files = [
       '.circleci/config.yml',
-      '.lando.base.yml',
+      '.lando.yml',
       'composer.json',
       $info,
       "{$theme_dir}/{$theme_machine_name}.libraries.yml",
@@ -138,17 +138,19 @@ class ScriptHandler
   }
 
   public static function setupSite(Event $event) {
-    self::setupTheme($event);
     $io = $event->getIO();
     $site = $io->ask('Provide new site name (for example: ifa-d8): ');
+    self::setupTheme($event);
     exec('git remote remove origin');
     exec('terminus build:project:create --pantheon-site="'. $site . '" --team="Taoti Creative" --org="Taoti" --admin-email="taotiadmin@taoti.com" --admin-password="Taoti1996" --ci=circleci --git=github ./ '. $site . ' --preserve-local-repository');
-    file_put_contents('.lando.yml', "
-name: {$site}
-config:
-  site: {$site}
-#  id: PANTHEONSITEID
-    ");
+    $contents = file_get_contents('.lando.yml');
+    file_put_contents('.lando.yml', str_replace([
+      'drupal8',
+      'pantheon site name',
+    ], [
+      $site,
+      $site,
+    ], $contents));
   }
 
   public static function enableGitHooks(Event $event) {
