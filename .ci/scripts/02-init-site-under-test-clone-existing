@@ -15,7 +15,11 @@ terminus -n env:wake "$TERMINUS_SITE.dev"
 # Create a new multidev site to test on if we haven't pushed to master
 if [[ $TERMINUS_ENV != "dev" ]];
 then
-  terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --prepare-for-pantheon
+  # Only use one of these lines. If this is a new multidev content will always be cloned
+  # If it is not a new multidev, the default behavior is to keep your test content.
+  # If that is not the desired behavior, add `--clone-content` to the command/switch enabled commands.
+  terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --prepare-for-pantheon
+  # terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --clone-content --prepare-for-pantheon
 else
   terminus -n build:env:create "$TERMINUS_SITE.dev" "$TERMINUS_ENV" --yes --prepare-for-pantheon
 fi
