@@ -18,11 +18,11 @@ composer setup-new-site
 and follow prompts.
 
 > Note: if you get a drush permissions error while that is attempting to run, you likely need [drush permissions patch](
-https://github.com/NickWilde1990/terminus-build-tools-plugin/commit/1ed3bfc4d52bc0eafc6b93da8b9cbb4308e28eca). If so,
+https://github.com/NickDickinsonWilde/terminus-build-tools-plugin/commit/1ed3bfc4d52bc0eafc6b93da8b9cbb4308e28eca.patch). If so,
 run:
 ```bash
 cd ~/.terminus/plugins/terminus-build-tools-plugin
-curl https://github.com/NickWilde1990/terminus-build-tools-plugin/commit/1ed3bfc4d52bc0eafc6b93da8b9cbb4308e28eca.patch > permissions.patch
+curl https://github.com/NickDickinsonWilde/terminus-build-tools-plugin/commit/1ed3bfc4d52bc0eafc6b93da8b9cbb4308e28eca.patch > permissions.patch
 git apply permissions.patch
 ```
 
