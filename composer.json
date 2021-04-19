@@ -88,7 +88,7 @@
             "@build-theme"
         ],
         "build-theme": [
-            "cd web/themes/THEME_NAME && npm install",
+            "cd web/themes/THEME_NAME && npm install --unsafe-perm node-sass",
             "gulp css --cwd=web/themes/THEME_NAME"
         ],
         "lint": [
