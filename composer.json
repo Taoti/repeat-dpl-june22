@@ -17,6 +17,10 @@
             "url": "https://github.com/Taoti/REPEAT/"
         },
         {
+            "type": "vcs",
+            "url": "https://github.com/Taoti/admin-theme/"
+        },
+        {
             "type": "composer",
             "url": "https://asset-packagist.org"
         },
@@ -63,6 +67,7 @@
         "oomphinc/composer-installers-extender": "^2.0",
         "pantheon-systems/drupal-integrations": "^9.0",
         "pantheon-systems/quicksilver-pushback": "^2.0",
+        "taoti/gin": "dev-master",
         "zaporylie/composer-drupal-optimizations": "^1.0"
     },
     "require-dev": {
