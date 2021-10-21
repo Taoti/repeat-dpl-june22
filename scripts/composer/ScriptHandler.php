@@ -142,6 +142,7 @@ class ScriptHandler
     $site = $io->ask('Provide new site name (for example: ifa-d8): ');
     self::setupTheme($event);
     exec('git remote remove origin');
+    exec('composer update');
     exec('terminus build:project:create --pantheon-site="'. $site . '" --team="Taoti Creative" --org="Taoti" --admin-email="taotiadmin@taoti.com" --admin-password="Taoti1996" --ci=circleci --git=github ./ '. $site . ' --preserve-local-repository');
     $contents = file_get_contents('.lando.yml');
     file_put_contents('.lando.yml', str_replace([
@@ -151,6 +152,7 @@ class ScriptHandler
       $site,
       $site,
     ], $contents));
+    exec('composer install');
   }
 
   public static function enableGitHooks(Event $event) {
