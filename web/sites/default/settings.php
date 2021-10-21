@@ -22,11 +22,6 @@ include __DIR__ . "/settings.pantheon.php";
 $settings['config_sync_directory'] = dirname(DRUPAL_ROOT) . '/config';
 
 /**
- * Support MariaDB 10.0 - needed on Pantheon for Drupal 9 until they update.
- */
-$databases['default']['default']['namespace'] = 'Drupal\\Driver\\Database\\mysql';
-
-/**
  * If there is a local settings file, then include it
  */
 $local_settings = __DIR__ . "/settings.local.php";
