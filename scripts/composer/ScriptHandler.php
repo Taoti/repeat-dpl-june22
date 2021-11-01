@@ -122,7 +122,11 @@ class ScriptHandler
       "{$theme_dir}/{$theme_machine_name}.libraries.yml",
       "{$theme_dir}/site.webmanifest",
       "{$theme_dir}/templates/content/node--page--full.html.twig",
-      "{$theme_dir}/templates/layout/html.html.twig"
+      "{$theme_dir}/templates/layout/html.html.twig",
+      "{$theme_dir}/templates/layout/page.html.twig",
+      "{$theme_dir}/templates/navigation/menu--main.html.twig",
+      "{$theme_dir}/templates/includes/pageheader.html.twig",
+      "{$theme_dir}/templates/includes/content.html.twig",
     ];
 
     foreach ($files as $filename) {
