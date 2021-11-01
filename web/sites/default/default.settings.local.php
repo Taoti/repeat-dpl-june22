@@ -88,3 +88,11 @@ $settings['trusted_host_patterns'][] = '.*';
    'namespace' => 'Drupal\\Core\\Database\\Driver\\mysql',
    'driver' => 'mysql',
  );*/
+
+/**
+ * Enable full error messages.
+ */
+$config['system.logging']['error_level'] = 'verbose';
+error_reporting(E_ALL);
+ini_set('display_errors', TRUE);
+ini_set('display_startup_errors', TRUE);
