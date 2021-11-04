@@ -17,6 +17,7 @@
 /web/themes/contrib/
 /web/private/scripts/quicksilver
 phpcs.xml.dist
+*lando.local.yml
 
 # :::::::::::::::::::::: cut ::::::::::::::::::::::
 # Pantheon commits a settings.php for environment-specific settings.
