@@ -1,8 +1,9 @@
 name: drupal8
 
-# config:
+config:
 #   site: pantheon site name
 #   id: pantheon site id
+  composer_version: '2-latest'
 
 tooling:
   npm:

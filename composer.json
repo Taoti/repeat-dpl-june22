@@ -1,6 +1,6 @@
 {
-    "name": "taoti/drupal8",
-    "description": "Install Taoti Drupal 8 Composer on Pantheon.",
+    "name": "taoti/drupal",
+    "description": "Install Taoti Drupal Composer on Pantheon.",
     "type": "project",
     "license": "MIT",
     "repositories": [
@@ -181,23 +181,31 @@
                 "[project-root]/.drush-lock-update": false,
                 "[web-root]/sites/default/config/.htaccess": false,
                 "[web-root]/sites/default/config/README": false
-
             },
             "gitignore": false
         },
         "patches": {
             "drupal/core": {
-                "subprofile support": "https://www.drupal.org/files/issues/2021-06-29/D91x_AND_D93x-1356276-656.patch",
-                "post install hook": "https://www.drupal.org/files/issues/2021-05-06/2924549-47.patch"
+                "Allow profiles to define a base/parent profile (https://www.drupal.org/project/drupal/issues/1356276)": "https://www.drupal.org/files/issues/2021-11-18/1356276-675.patch",
+                "Invoke hook after a site install is complete (https://www.drupal.org/project/drupal/issues/2924549)": "https://www.drupal.org/files/issues/2021-05-06/2924549-47.patch"
             }
         }
     },
     "config": {
+        "discard-changes": true,
         "optimize-autoloader": true,
         "preferred-install": "dist",
         "sort-packages": true,
         "platform": {
             "php": "7.4"
+        },
+        "allow-plugins": {
+            "cweagans/composer-patches": true,
+            "drupal/core-composer-scaffold": true,
+            "composer/installers": true,
+            "zaporylie/composer-drupal-optimizations": true,
+            "oomphinc/composer-installers-extender": true,
+            "dealerdirect/phpcodesniffer-composer-installer": true
         }
     }
 }
