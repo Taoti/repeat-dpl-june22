@@ -158,6 +158,7 @@
             ],
             "export-configuration": "drush config-export --yes"
         },
+        "composer-exit-on-patch-failure": true,
         "drupal-scaffold": {
             "allowed-packages": [
                 "pantheon-systems/drupal-integrations",
