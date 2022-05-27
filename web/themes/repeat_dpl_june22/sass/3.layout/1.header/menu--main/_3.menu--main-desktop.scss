@@ -1,0 +1,192 @@
+/* large "desktop" menu. */
+@include desktop {
+  .menu--main {
+    @include flex-row;
+    justify-content: flex-end;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+  }
+
+  .main-menu {
+    display: flex;
+    position: relative;
+    z-index: 1;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+    list-style: none;
+    width: 100%;
+    max-width: 100%;
+    margin: 0;
+    padding: 0;
+    font-family: $font--heading;
+    font-size: 1rem;
+    line-height: 1.2;
+
+    // hide all submenus by default.
+    .submenu {
+      display: none;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+
+      .menu__submenu-toggle {
+        display: none;
+      }
+    }
+
+    .menu__submenu {
+      display: none;
+    }
+
+    .menu-item {
+      margin: 0;
+      padding: 0;
+
+      a {
+        display: block;
+        text-decoration: none;
+
+        &:hover,
+        &:focus,
+        &:active {
+          background-color: $color--link;
+          color: $color--white;
+        }
+      }
+    }
+
+    .menu-item--expanded {
+      justify-content: flex-end;
+      list-style: none;
+    }
+
+    /* first level links */
+    > .menu-item {
+      @include flex-row;
+      position: relative;
+      margin-left: 2rem;
+      background-color: $color--white;
+
+      > a {
+        padding: 0.25rem;
+      }
+    }
+
+    // second level submenu
+    > .menu-item > .menu__submenu {
+      display: block;
+      position: absolute;
+      padding: 0;
+      background-color: $color--white;
+      border: 1px solid $color--gray-lighter;
+      box-shadow: 5px 5px 15px 0 rgba($color--black, 0.15);
+      top: 3rem;
+      right: calc(50% - 100px);
+      z-index: -1;
+      opacity: 0;
+      transform: translateY(-1rem) scaleY(0.1);
+      transform-origin: top center;
+      transition: opacity $transition-speed linear,
+        transform $transition-speed ease-in;
+
+      &:before {
+        content: '';
+        display: none;
+        position: absolute;
+        top: -1rem;
+        left: calc(50% - 1rem);
+        height: 0;
+        width: 0;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-bottom: 1rem solid $color--gray-lighter;
+      }
+
+      &:after {
+        content: '';
+        display: none;
+        position: absolute;
+        top: calc(-1rem + 2px);
+        left: calc(50% - 1rem);
+        height: 0;
+        width: 0;
+        border-left: 1rem solid transparent;
+        border-right: 1rem solid transparent;
+        border-bottom: 1rem solid $color--white;
+      }
+    }
+
+    /* second level submenu -- revealed */
+    > .menu-item.submenu--revealed > .menu__submenu {
+      opacity: 1;
+      z-index: 1;
+      transform: translateY(0) scaleY(1);
+
+      &:before,
+      &:after {
+        display: block;
+      }
+
+      > .submenu {
+        display: block;
+      }
+    }
+
+    .submenu {
+      min-width: 200px;
+      max-width: 300px;
+
+      > .menu-item {
+        position: relative;
+        z-index: 1;
+        border-bottom: 1px solid $color--gray-lighter;
+      }
+
+      > .menu-item:last-child {
+        border-bottom: none;
+      }
+
+      a {
+        display: block;
+        padding: 0.5rem;
+      }
+    }
+  }
+
+  .menu__submenu-toggle {
+    @include flex-center;
+    height: 1.6667rem;
+    width: 1.6667rem;
+    border: none;
+    padding: 0;
+
+    .submenu-toggle__icon {
+      @include fluid-image;
+      width: 14px;
+      transform: rotateX(0deg);
+      transform-origin: center;
+      fill: $color--link;
+      transition: transform $transition-speed ease-in,
+        fill $transition-speed ease-out;
+    }
+
+    &:hover,
+    &:active,
+    &:focus {
+      .submenu-toggle__icon {
+        fill: $color--white;
+      }
+    }
+
+    .submenu--revealed & .submenu-toggle__icon {
+      transform: rotateX(-180deg);
+    }
+  }
+
+  .menu-main-toggle {
+    display: none;
+  }
+}

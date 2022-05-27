@@ -1,0 +1,155 @@
+/**
+ * --------
+ * SETTINGS
+ * ALL global variables should be collected here.
+ *
+ * 1. WIDTHS
+ *    1.A Common breakpoints
+ *    1.B Semantic widths
+ * 2. FONTS
+ *    2.A Imported fonts
+ *    2.B Basic Font Stacks
+ *    2.C Imported Families Variables
+ * 3. COLORS
+ *    3.A Raw colors
+ *    3.B Semantic colors
+ * 4. LAYOUT & MISC
+ */
+
+/**
+ * ---------
+ * 1. WIDTHS
+ *
+ * 1.A Common breakpoints ----------
+ */
+$width--xs: 350px; /* small phone breakpoing (iPhone 5, etc.) */
+$width--s: 650px; /* general phone breakpoint */
+$width--m: 800px; /* general tablet portrait breakpoint */
+$width--l: 1100px; /* general tablet landscape breakpoint */
+$width--xl: 1400px; /* general max container width */
+$width--max: 1920px; /* general design max */
+
+/**
+ * 1.B Semantic widths ----------
+ * assume any "content" widths will
+ * also get horizontal padding/gutters.
+ */
+$width--content-max: $width--xl;
+$width--content-reading: $width--m;
+$mobile: $width--m;
+
+/**
+ * --------
+ * 2. FONTS
+ *
+ * 2.A Imported fonts ----------
+
+  ! example - uncomment to use it or delete it
+  @font-face {
+    font-family: "Custom Family Name";
+    src: url('../fonts/path-to-font.woff2') format('woff2');
+    font-weight: 300;
+    font-style: normal;
+  }
+ */
+
+/**
+ * 2.B Basic Font Stacks ----------
+ */
+$font--sans: 'Helvetica Neue', Helvetica, -apple-system, BlinkMacSystemFont,
+  'Open Sans', 'Source Sans Pro', 'Droid Serif', Arial, 'Segoe UI', sans-serif;
+$font--serif: 'Adobe Garamond Pro', Garamond, Baskerville,
+  'Baskerville Old Face', 'Hoefler Text', 'Times New Roman', serif;
+
+/**
+ * 2.C Imported Families Variables ----------
+ * include imported family variables here, along with a sans/serif fallback
+
+  ! example - uncomment to use it or delete it
+  $font--custom-family-name: "Custom Family Name", $font--sans;
+ */
+
+/**
+ * 2.D  Semantic Fonts ----------
+ * if you're using imported families, use family variables
+ */
+$font--body: Arial, sans-serif;
+$font--heading: Arial, sans-serif;
+$font--button: Arial, sans-serif;
+
+/**
+ * ---------
+ * 3. COLORS
+ *
+ * 3.A Raw colors ----------
+ */
+$color--white: #fff;
+$color--gray-white: #eaebec;
+$color--gray-lighter: #cacbcc;
+$color--gray-light: #aaabac;
+$color--gray: #7a7b7c;
+$color--gray-dark: #2a2b2c;
+$color--black: #000;
+
+$color--orange: #ed3100;
+$color--orange-light: #fd5100;
+$color--sand: #faf5e8;
+$color--purple: #8e0085;
+
+/**
+ * 3.B Semantic colors ----------
+ */
+$color--background: $color--white;
+$color--text: $color--gray-dark;
+$color--outer-frame: $color--gray-white;
+
+$color--link: $color--orange;
+$color--link-hover: $color--orange-light;
+
+$color--clear-visual-focus: $color--purple;
+
+$color--button-text: $color--link;
+$color--button-background: transparent;
+$color--button-text--hover: $color--white;
+$color--button-background--hover: $color--link;
+
+$color--disabled-text: $color--gray-light;
+$color--disabled-background: $color--gray-white;
+
+$color--on-dark--background: $color--gray-dark;
+$color--on-dark--text: $color--white;
+$color--on-dark--link: $color--link;
+$color--on-dark--link-hover: $color--link-hover;
+
+$color--unpublished-node: $color--sand;
+
+/**
+ * ---------
+ * 4. LAYOUT & MISC
+ */
+$base-font-size: 10px;
+$body-font-size: 2em;
+
+/**
+ * default padding for sections
+ * and other full-width containers
+ */
+$spacing--horizontal: 2rem;
+$spacing--vertical: clamp(3rem, 3.75vw, 6rem);
+
+/**
+ * default amount of space
+ * between items in a grid.
+ */
+$grid-gutter: 1rem;
+
+/* default shadow */
+$shadow: 0 1rem 1rem rgba($color--black, 0.1);
+
+/* z-indexes */
+$z--nav: 500;
+
+/* default speed of animation transitions */
+$transition-speed: 0.15s;
+$transition-speed--slow: 0.3s;
+$transition-speed--fast: 0.075s;

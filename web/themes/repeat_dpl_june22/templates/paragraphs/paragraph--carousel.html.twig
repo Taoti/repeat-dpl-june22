@@ -1,0 +1,67 @@
+{# Process Fields #}
+{% set title = content.field_carousel_title|field_value %}
+{% set items = content.field_carousel_items|field_value %}
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'carousel',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'carousel-id--' ~ paragraph.id() %}
+{% set title_id = 'carousel__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% if title %}
+  {% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+{% endif %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <section {{ attributes }}>
+
+    {% if title is not empty %}
+      <h2 class="carousel__title" id="{{ title_id }}">
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if items is not empty %}
+      <div class="l-carousel-container">
+
+        <div class="carousel-controls">
+          <div class="carousel-controls__arrows">
+            <button class="carousel-arrow carousel-arrow--prev">
+              <span class="visually-hidden">Previous item</span>
+              {{ source(active_theme_path() ~ '/img/icons/arrow.svg', true) }}
+            </button>
+
+            <button class="carousel-arrow carousel-arrow--next">
+              <span class="visually-hidden">Next item</span>
+              {{ source(active_theme_path() ~ '/img/icons/arrow.svg', true) }}
+            </button>
+          </div>
+
+          <div class="carousel-controls__pagination">
+            {# this is populated dynamically by slick's JS #}
+          </div>
+        </div>
+
+        <div class="carousel__items">
+          {{ items }}
+        </div>
+      </div>
+    {% endif %}
+
+  </section>
+{% endblock %}
+
+{{ attach_library('mimic/carousel') }}

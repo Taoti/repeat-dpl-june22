@@ -1,0 +1,76 @@
+{# Process Fields #}
+{% set background = content.field_hero_image|field_target_entity.uri.value %}
+
+{% if background is not empty %}
+  {% set background = file_url(background) %}
+  {% set style = 'background-image: url(' ~ background ~ ');' %}
+{% endif %}
+
+{% set title = content.field_hero_title|field_value %}
+{% set subtitle = content.field_hero_subtitle|field_value %}
+{% set meta = {} %}
+
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'hero',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    background ? component_name ~ '--background' : component_name ~ '--no-background',
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'hero-id--' ~ paragraph.id() %}
+{% set title_id = 'hero__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% if title %}
+  {% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+{% endif %}
+
+{% if style %}
+  {% set attributes = attributes.setAttribute('style', style) %}
+{% endif %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    <div class="hero__inner">
+      <div class="hero__text-content">
+        {% if title %}
+          <h1 class="hero__title" id="{{ title_id }}">
+            {{- title -}}
+          </h1>
+        {% endif %}
+
+        {% if subtitle %}
+          <p class="hero__subtitle">
+            {{- subtitle -}}
+          </p>
+        {% endif %}
+      </div>
+
+      {% if meta %}
+        <div class="hero__meta">
+          {% if items %}
+            <div class="metadata metadata--hero">
+              {% for key, item in items %}
+                <div class="metadata__item metadata__{{ key }}">
+                  <div class="metadata__label">{{ item.label }}</div>
+                  <div class="metadata__value">{{ item.value }}</div>
+                </div>
+              {% endfor %}
+            </div>
+          {% endif %}
+        </div>
+      {% endif %}
+    </div>
+  </article>
+{% endblock %}
+

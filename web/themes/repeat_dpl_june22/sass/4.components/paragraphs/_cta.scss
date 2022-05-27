@@ -1,0 +1,43 @@
+.cta {
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+
+  .l-cta__inner {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 768px;
+    padding: 30px 20px;
+  }
+
+  .cta__title {
+    font-size: 32px;
+    line-height: 1.25;
+    font-weight: 700;
+    text-align: center;
+  }
+
+  .cta__text {
+    text-align: center;
+  }
+
+  .cta__links {
+    margin-top: 15px;
+    text-align: center;
+
+    a {
+      background: #81b1ff;
+      border: none;
+      color: black;
+      font-size: 18px;
+      font-weight: 400;
+      padding: 10px 20px;
+      text-decoration: none;
+      text-transform: capitalize;
+
+      &:hover {
+        background: #bce0fd;
+      }
+    }
+  }
+}

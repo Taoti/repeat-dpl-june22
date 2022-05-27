@@ -1,0 +1,19 @@
+@include mobile {
+  .l-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: $z--nav;
+    width: 100%;
+    max-width: 100%;
+    padding: 0;
+    background-color: $color--white;
+    box-shadow: -5px 0 10px 5px rgba($color--black, 0.2);
+  }
+
+  .l-header__inner {
+    position: relative;
+    flex-wrap: wrap;
+  }
+}

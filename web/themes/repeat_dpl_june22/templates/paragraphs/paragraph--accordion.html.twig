@@ -1,0 +1,77 @@
+{# Process Fields #}
+{% set title = content.field_accordion_title|field_value %}
+{% set items = content.field_accordion_items|field_value %}
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'accordion',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'accordion-id--' ~ paragraph.id() %}
+{% set title_id = 'accordion__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+{% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+{# Markup #}
+{% block paragraph %}
+  <section {{ attributes }}>
+    {% if title is not empty %}
+      <h2 class="accordion__heading" id="{{ title_id }}">
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if items is not empty %}
+      <div class="accordion__accordion-items">
+        {{ items }}
+      </div>
+    {% endif %}
+  </section>
+{% endblock paragraph %}
+
+{{ attach_library('repeat_dpl_feb22/accordion') }}
+
+{#
+  NOTES:
+
+  This implementation is based on the WAI-ARIA Authoring Practices 1.1 example:
+  https://www.w3.org/TR/wai-aria-practices/examples/accordion/accordion.html
+
+
+
+  MULTIPLE COLUMNS of ACCORDION ITEMS
+  ---
+  In order to render multiple columns of accordion items in a nice "masonry"
+  style, such that openining an accordion in Column-A does not push down empty
+  space below a sibling accordion in Column-B, the current best practice option is
+  to use twig on the field ourput of {{ content.repeat_accordion_items }}, and
+  assign accordions into two (or more) column containers like so:
+
+  in `field--repeat-accordion-items.html.twig`:
+
+  ```
+    <div class="l-accordion-column">
+      {% for item in items %}
+        {% if loop.index is odd %}
+          {{ item.content }}
+        {% endif %}
+      {% endfor %}
+    </div>
+
+    <div class="l-accordion-column">
+      {% for item in items %}
+        {% if loop.index is not odd %}
+          {{ item.content }}
+        {% endif %}
+      {% endfor %}
+    </div>
+  ```
+#}

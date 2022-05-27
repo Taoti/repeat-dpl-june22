@@ -1,0 +1,28 @@
+{% set node_name = node_type ? ' pageheader--' ~ node_type : ' pageheader--not-node' %}
+{% set image = pageheader_image ? '' : ' pageheader--no-image' %}
+
+<div class="pageheader{{ node_name }}{{ image }}">
+	<div class="l-container">
+		<div class="pageheader__inner">
+
+      <div class="pageheader__breadcrumbs">
+        Enable breadcrumbs token at /includes/pageheader.html.twig
+        {#    
+				  {{ drupal_entity('block', 'repeat_dpl_june22_breadcrumbs') }}  
+				  {{ drupal_block('system_breadcrumb_block') }}
+  			#}
+      </div>
+
+      {% block pageheader__content %}
+				<div class="pageheader__content">
+					{% block pageheader__title %}
+						<h1 class="pageheader__title">{{ title }}</h1>
+					{% endblock %}
+				</div>
+			{% endblock %}
+
+		</div>
+	</div>
+</div>
+
+<a id="main-content" tabindex="-1"></a>

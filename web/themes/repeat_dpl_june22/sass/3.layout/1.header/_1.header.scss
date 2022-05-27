@@ -1,0 +1,15 @@
+.l-header {
+  .l-container {
+    @include layout-container();
+  }
+
+  @media print {
+    display: none;
+  }
+}
+
+.l-header__inner {
+  @include flex-row();
+  justify-content: space-between;
+  flex-wrap: wrap;
+}

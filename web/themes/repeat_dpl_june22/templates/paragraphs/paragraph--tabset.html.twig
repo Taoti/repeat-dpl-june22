@@ -1,0 +1,87 @@
+{# Process Fields #}
+{% set title = content.field_tabset_title|field_value %}
+{% set items = content.field_tab_items|field_value %}
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'tabset',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'tabset-id--' ~ paragraph.id() %}
+{% set title_id = 'tabset__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+{% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+{# Markup #}
+{% block paragraph %}
+  <section {{ attributes }}>
+    {% if title is not empty %}
+      <h2 class="tabset__heading" id="{{ title_id }}">
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if items is not empty %}
+      <div class="tabset__tabs">
+        <div class="tabset__tablist" role="tablist" aria-orientation="vertical">
+          {% for item in content.field_tab_items|field_value %}
+            {% set tab_id = id ~ '__tab--' ~ loop.index %}
+            {% set panel_id = id ~ '__tab-panel--' ~ loop.index %}
+
+            <button
+              class="tabset__tab"
+              role="tab"
+              aria-controls="{{ panel_id }}"
+              id="{{ tab_id }}"
+              {% if loop.index == 1 %}
+                aria-selected="true"
+              {% else %}
+                aria-selected="false" tabindex="-1"
+              {% endif %}
+            >
+              <span class="tab__label">
+                {{ item['#paragraph'].field_tab_item_title.value }}
+              </span>
+            </button>
+          {% endfor %}
+        </div>
+
+        <div class="tabset__panels">
+          {% for item in content.field_tab_items|field_value %}
+            {% set tab_id = id ~ '__tab--' ~ loop.index %}
+            {% set panel_id = id ~ '__tab-panel--' ~ loop.index %}
+
+            <article
+              class="
+                tabset__panel
+                text-formatted
+                {% if loop.index == 1 %}
+                  tabset__panel--open
+                {% endif %}
+              "
+              tabindex="0"
+              role="tabpanel"
+              id="{{ panel_id }}"
+              aria-labelledby="{{ tab_id }}"
+              {% if loop.index > 1 %}
+                hidden
+              {% endif %}
+            >
+              {{ item }}
+            </article>
+          {% endfor %}
+        </div>
+      </div>
+    {% endif %}
+  </section>
+{% endblock paragraph %}
+
+{{ attach_library('mimic/tabset') }}

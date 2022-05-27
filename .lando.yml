@@ -9,8 +9,8 @@ tooling:
   npm:
     service: appserver
     cmd: npm
-    dir: /app/web/themes/THEME_NAME
+    dir: /app/web/themes/repeat_dpl_june22
   gulp:
     service: appserver
     cmd: gulp
-    dir: /app/web/themes/THEME_NAME
+    dir: /app/web/themes/repeat_dpl_june22

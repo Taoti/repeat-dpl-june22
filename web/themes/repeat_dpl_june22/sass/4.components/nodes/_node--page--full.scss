@@ -1,0 +1,32 @@
+/* basic page - full page */
+.node--page--full {
+  /**
+   * specific basic page full page styling ...
+   * overrides for blocks, paragraphs, etc.
+   * with specific styling when on these
+   * node types.
+   */
+
+  .node__content {
+    /* @include layout-container */
+    max-width: 1366px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+  }
+
+  .paragraph--type--hero-layout,
+  .paragraph--type--wysiwyg {
+    /* @include layout-container--narrow */
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 0 16px;
+  }
+
+  .field--name-field-layout {
+    > .field__item {
+      margin-top: 48px;
+    }
+  }
+}

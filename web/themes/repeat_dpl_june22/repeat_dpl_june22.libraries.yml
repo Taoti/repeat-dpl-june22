@@ -1,0 +1,74 @@
+#  Global library
+global:
+  version: 1.0.0
+  css:
+    theme:
+      dist/css/main.css: { minified: false }
+  js:
+    dist/js/main.js: { minified: false }
+  dependencies:
+    - core/drupal
+    - core/jquery
+    - repeat_dpl_june22/accessibility
+    - repeat_dpl_june22/anchor-links
+
+normalize.css:
+  remote: https://github.com/necolas/normalize.css/
+  version: 8.0.1
+  license:
+    name: MIT
+    url: https://github.com/necolas/normalize.css/blob/master/LICENSE.md
+    gpl-compatible: true
+  css:
+    base:
+      node_modules/normalize.css/normalize.css: { minified: false }
+
+what-input:
+  remote: https://github.com/ten1seven/what-input
+  version: 5.2.10
+  license:
+    name: MIT
+    url: https://github.com/Accessible360/accessible-slick/blob/master/LICENSE
+    gpl-compatible: true
+  js:
+    node_modules/what-input/dist/what-input.min.js: { minified: true }
+
+accessible-slick:
+  remote: https://github.com/Accessible360/accessible-slick
+  version: 1.0.1
+  license:
+    name: MIT
+    url: https://github.com/necolas/normalize.css/blob/master/LICENSE.md
+    gpl-compatible: true
+  css:
+    base:
+      node_modules/@accessible360/accessible-slick/slick/slick.min.css: { minified: true }
+      node_modules/@accessible360/accessible-slick/slick/accessible-slick-theme.min.css: { minified: true }
+  js:
+    node_modules/@accessible360/accessible-slick/slick/slick.min.js: { minified: true }
+
+carousel:
+  js:
+    js/components/carousel.js: { minified: false }
+  dependencies:
+    - repeat_dpl_june22/accessible-slick
+
+menu--main:
+  js:
+    js/components/menu--main.js: { minified: false }
+
+accordion:
+  js:
+    js/components/accordion.js: { minified: false }
+
+accessibility:
+  js:
+    js/components/accessibility.js: { minified: false }
+
+anchor-links:
+  js:
+    js/components/anchor-links.js: { minified: false }
+
+tabset:
+  js:
+    js/components/tabset.js: { minified: false }

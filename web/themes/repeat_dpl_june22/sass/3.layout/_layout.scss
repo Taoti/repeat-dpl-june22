@@ -1,0 +1,12 @@
+.l-container,
+.p-container {
+  @include layout-container();
+}
+
+.l-page {
+  position: relative;
+
+  @include mobile {
+    margin-top: 40px;
+  }
+}

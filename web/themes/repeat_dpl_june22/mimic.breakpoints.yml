@@ -1,0 +1,24 @@
+mimic.small:
+  label: small
+  mediaQuery: '(min-width: 0)'
+  weight: 0
+  multipliers:
+    - 1x
+mimic.medium:
+  label: medium
+  mediaQuery: 'screen and (min-width: 420px)'
+  weight: 1
+  multipliers:
+    - 1x
+mimic.large:
+  label: large
+  mediaQuery: 'screen and (min-width: 768px)'
+  weight: 2
+  multipliers:
+    - 1x
+mimic.xlarge:
+  label: xlarge
+  mediaQuery: 'screen and (min-width: 1025px)'
+  weight: 3
+  multipliers:
+    - 1x

@@ -38,8 +38,8 @@ jobs:
 
       - restore_cache:
           keys:
-            - theme_cache-{{ checksum "web/themes/THEME_NAME/package.json" }}-{{ checksum "web/themes/THEME_NAME/package-lock.json" }}
-            - theme_cache-{{ checksum "web/themes/THEME_NAME/package.json" }}
+            - theme_cache-{{ checksum "web/themes/repeat_dpl_june22/package.json" }}-{{ checksum "web/themes/repeat_dpl_june22/package-lock.json" }}
+            - theme_cache-{{ checksum "web/themes/repeat_dpl_june22/package.json" }}
             - theme_cache
 
       - run:
@@ -63,10 +63,10 @@ jobs:
           command: ./.ci/scripts/02-init-site-under-test-clone-existing
 
       - save_cache:
-          key: theme_cache-{{ checksum "web/themes/THEME_NAME/package.json" }}-{{ checksum "web/themes/THEME_NAME/package-lock.json" }}
+          key: theme_cache-{{ checksum "web/themes/repeat_dpl_june22/package.json" }}-{{ checksum "web/themes/repeat_dpl_june22/package-lock.json" }}
           paths:
-            - web/themes/THEME_NAME/node_modules
-            - web/themes/THEME_NAME/css
+            - web/themes/repeat_dpl_june22/node_modules
+            - web/themes/repeat_dpl_june22/css
 
       - run:
           name: post-test actions

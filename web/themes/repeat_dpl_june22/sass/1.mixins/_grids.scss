@@ -1,0 +1,28 @@
+@mixin grid-base() {
+  display: grid;
+  grid-gap: $grid-gutter;
+}
+
+/* grids of two */
+@mixin grid-two {
+  @include grid-base();
+  grid-template-columns: 1fr 1fr;
+
+  @include bp-down($width--m) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* grids of three */
+@mixin grid-three {
+  @include grid-base();
+  grid-template-columns: 1fr 1fr 1fr;
+
+  @include bp-down($width--l) {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  @include bp-down($width--m) {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,206 @@
+/* small "mobile" menu. */
+@include mobile {
+  .menu--main {
+    position: absolute;
+    top: 93px;
+    left: 0;
+    right: 0;
+    max-height: 0;
+  }
+
+  .main-menu {
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: flex-start;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: $color--white;
+    transform-origin: top center;
+    transform: scaleY(0.01);
+    opacity: 0;
+    z-index: 1;
+    transition: opacity $transition-speed linear,
+      transform $transition-speed ease-in;
+
+    > .menu-item {
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      background-color: $color--white;
+      border-bottom: 1px solid $color--gray-lighter;
+
+      > a {
+        width: calc(100% - 45px);
+        padding: 0.5rem;
+      }
+    }
+
+    .submenu {
+      display: block;
+      list-style: none;
+      padding: 0.25rem 0;
+      margin: 0;
+      font-size: 0.9rem;
+      transform: scaleY(0.01);
+      opacity: 0;
+      transform-origin: center top;
+      transition: opacity $transition-speed--fast linear,
+        transform $transition-speed ease-in;
+
+      .menu-item {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+
+        a {
+          display: block;
+          padding: 0.25rem;
+          padding-left: 1.5rem;
+        }
+      }
+    }
+
+    > .menu-item > .menu__submenu {
+      position: absolute;
+      top: 0;
+      width: 100%;
+      background-color: $color--gray-white;
+      z-index: -1;
+    }
+
+    > .menu-item.submenu--revealed > .menu__submenu {
+      position: inherit;
+      top: inherit;
+      z-index: 0;
+
+      > .submenu {
+        transform: scaleY(1);
+        opacity: 1;
+      }
+    }
+
+    /* hide third level and deeper menus and toggles */
+    .submenu .menu__submenu-toggle,
+    .submenu .menu__submenu {
+      display: none;
+    }
+
+    .menu__submenu-toggle {
+      @include flex-center;
+      height: 45px;
+      width: 45px;
+      border: none;
+      padding: 0;
+
+      .submenu-toggle__icon {
+        @include fluid-image;
+        width: 14px;
+        transform: rotateX(0deg);
+        transform-origin: center;
+        fill: $color--link;
+        transition: transform $transition-speed ease-in,
+          fill $transition-speed ease-out;
+      }
+
+      &:hover,
+      &:active,
+      &:focus {
+        .submenu-toggle__icon {
+          fill: $color--white;
+        }
+      }
+    }
+
+    .submenu--revealed .submenu-toggle__icon {
+      transform: rotateX(-180deg);
+    }
+  }
+
+  .menu-main-toggle {
+    @include button--clean;
+    display: block;
+    position: fixed;
+    z-index: 1;
+    top: 0;
+    right: 0;
+    border: none;
+    padding: 0;
+    margin: 0;
+    width: 40px;
+    height: 40px;
+    background-color: $color--white;
+
+    .menu-icon {
+      position: relative;
+      width: 40px;
+      height: 40px;
+    }
+
+    .menu-icon__bar {
+      position: absolute;
+      top: 13px;
+      left: 10px;
+      width: 20px;
+      height: 2px;
+      background-color: $color--link;
+      transform: rotate(0deg) scaleX(1);
+      transition: background-color $transition-speed ease-out,
+        top $transition-speed linear, transform $transition-speed--slow ease-out;
+
+      &:nth-child(2) {
+        top: 19px;
+      }
+
+      &:last-child {
+        top: 25px;
+      }
+    }
+
+    &:hover,
+    &:focus,
+    &:active {
+      background-color: $color--link;
+
+      .menu-icon__bar {
+        background-color: $color--white;
+      }
+    }
+  }
+
+  .main-menu--expanded {
+    .menu--main {
+      max-height: calc(100vh - 145px);
+      overflow-y: auto;
+      border-bottom: 1px solid $color--gray;
+      box-shadow: -5px 0 10px 5px rgba($color--black, 0.2);
+    }
+
+    .main-menu {
+      transform: scaleY(1);
+      opacity: 1;
+      z-index: 1;
+    }
+
+    .menu-icon__bar:first-child {
+      transform: rotate(45deg);
+      top: 19px;
+      left: 11px;
+    }
+
+    .menu-icon__bar:nth-child(2) {
+      transform: scaleX(0);
+    }
+
+    .menu-icon__bar:last-child {
+      transform: rotate(-45deg);
+      top: 19px;
+      left: 11px;
+    }
+  }
+}

@@ -1,0 +1,26 @@
+{# Build Attributes #}
+{%
+  set classes = [
+    'wysiwyg',
+    'text-formatted',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'wysiwyg-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <div {{ attributes }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </div>
+{% endblock paragraph %}

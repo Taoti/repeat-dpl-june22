@@ -1,0 +1,45 @@
+{# Process Fields #}
+{% set title = content.field_impact_stats_title|field_value %}
+{% set stats = content.field_impact_stats_items|field_value %}
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'impact-stats',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'impact-stats-id--' ~ paragraph.id() %}
+{% set title_id = 'impact-stats__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% if title %}
+  {% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+{% endif %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    {% if title is not empty %}
+      <h2 class="impact-stats__heading" id="{{ title_id }}">
+        {{- title -}}
+      </h2>
+    {% endif %}
+
+    {% if stats %}
+      <ul class="impact-stats__stat-items -columns-{{ stats|length }}">
+        {{ stats }}
+      </ul>
+    {% endif %}
+
+  </article>
+{% endblock %}
+
+{{ attach_library('mimic/impact-stats') }}

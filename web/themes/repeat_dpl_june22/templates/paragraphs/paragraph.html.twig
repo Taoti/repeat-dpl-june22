@@ -1,0 +1,64 @@
+{# Build Attributes #}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'paragraph-id--' ~ paragraph.id() %}
+{% set title_id = 'paragraph__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    {% block content %}
+      {{ content }}
+    {% endblock %}
+  </article>
+{% endblock paragraph %}
+
+
+{#
+  NOTES:
+
+  1.  Generally, replace the paragraph-- in id and title_id above with a better name for
+  your component.
+
+  2.  If your paragraph contains other paragraphs/articles, it is probably a <section>,
+  otherwise it is likely an <article>.
+
+  3.  The wrapper should get: aria-labelledby="{{ title_id }}" and the main title
+  heading^ should get: id="{{ title_id }}"
+
+  ^ usually an h2, but possibly an h3 if the child of another paragraph.
+
+  If your component doesn't have a title field or any obvious field you can use as
+  a title, use a visually-hidden heading and describe the kind of content this
+  component contains.
+
+  Example:
+
+      {% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+      <article {{ attributes }}>
+        {% if content.field_title|field_value is not empty %}
+          <h2 class="paragraph__heading" id="{{ title_id }}">
+            {{ content.field_title|field_value }}
+          </h2>
+        {% else %}
+          <h2 class="visually-hidden" id="{{ title_id }}">Testimonial</h2>
+        {% endif %}
+
+        {% block content %}
+          {{ content|without("field_title") }}
+        {% endblock %}
+      </article>
+
+#}

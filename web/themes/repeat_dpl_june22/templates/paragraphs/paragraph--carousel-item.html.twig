@@ -1,0 +1,37 @@
+{# Process Fields #}
+{% set image = content.field_carousel_item_image|field_value %}
+{% set caption = content.field_carousel_item_caption|field_value %}
+
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'carousel-item',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'carousel-item-id--' ~ paragraph.id() %}
+{% set title_id = 'carousel-item__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+
+{# Markup #}
+{% block paragraph %}
+<figure {{ attributes }}>
+  <div class="carousel-item__image">
+    {{ image }}
+  </div>
+
+  <figcaption class="carousel-item__caption" id="{{ title_id }}">
+    <div class="l-carousel-item__caption-text">
+      {{- caption -}}
+    </div>
+  </figcaption>
+</figure>
+{% endblock %}

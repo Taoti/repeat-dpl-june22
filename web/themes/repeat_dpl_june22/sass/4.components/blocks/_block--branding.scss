@@ -1,0 +1,50 @@
+.block--branding {
+  @include flex-row;
+
+  .block--branding__logo {
+    display: block;
+    height: 50px;
+    width: 50px;
+
+    > img {
+      @include fluid-image-fill();
+    }
+  }
+
+  .block--branding__name,
+  .block--branding__slogan {
+    font-family: $font--heading;
+    margin: 0.5rem;
+  }
+
+  .block--branding__name {
+    text-transform: uppercase;
+    font-weight: 600;
+    font-size: 1.25rem;
+
+    > a {
+      text-decoration: none;
+
+      &:hover,
+      &:active,
+      &:focus {
+        text-decoration: none;
+      }
+    }
+  }
+}
+
+@include mobile {
+  .block--branding {
+    .block--branding__logo {
+      height: 24px;
+      width: 24px;
+      margin: 8px;
+    }
+
+    .block--branding__name {
+      font-size: 1rem;
+      margin: 0;
+    }
+  }
+}

@@ -1,0 +1,44 @@
+{
+  "name": "mimic",
+  "version": "1.0.0",
+  "description": "Taoti Starter Theme",
+  "main": "gulp watch",
+  "author": "Taoti Creative",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Taoti/mimic"
+  },
+  "license": "ISC",
+  "private": false,
+  "dependencies": {
+    "@accessible360/accessible-slick": "1.0.1",
+    "@babel/core": "^7.14.3",
+    "@babel/preset-env": "^7.14.2",
+    "autoprefixer": "^10.2.5",
+    "babel-loader": "^8.2.2",
+    "browserslist-config-google": "^3.0.1",
+    "cssnano": "^5.0.8",
+    "gulp": "^4.0.2",
+    "gulp-postcss": "^9.0.0",
+    "gulp-sass": "^4.1.0",
+    "gulp-sass-glob": "^1.1.0",
+    "gulp-sourcemaps": "^3.0.0",
+    "node-sass": "^6.0.0",
+    "normalize.css": "^8.0.1",
+    "npm-run-all": "^4.1.5",
+    "postcss": "^8.2.15",
+    "prettier": "^2.4.1",
+    "webpack": "^5.37.1",
+    "webpack-cli": "^4.7.0",
+    "webpack-stream": "^6.1.2",
+    "what-input": "^5.2.10"
+  },
+  "browserslist": [
+    "extends browserslist-config-google"
+  ],
+  "scripts": {
+    "format": "run-p format:*",
+    "format:js": "npx prettier --write js/",
+    "format:sass": "npx prettier --write sass/"
+  }
+}

@@ -1,0 +1,35 @@
+/* Common heading styles */
+@mixin heading-style--base() {
+  font-family: $font--heading;
+  font-weight: 700;
+}
+
+@mixin heading-style--1() {
+  @include heading-style--base;
+  /* Customize h1 styles here */
+}
+
+@mixin heading-style--2() {
+  @include heading-style--base;
+  /* Customize h2 styles here */
+}
+
+@mixin heading-style--3() {
+  @include heading-style--base;
+  /* Customize h3 styles here */
+}
+
+@mixin heading-style--4() {
+  @include heading-style--base;
+  /* Customize h4 styles here */
+}
+
+@mixin heading-style--5() {
+  @include heading-style--base;
+  /* Customize h5 styles here */
+}
+
+@mixin heading-style--6() {
+  @include heading-style--base;
+  /* Customize h6 styles here */
+}

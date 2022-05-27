@@ -1,0 +1,18 @@
+<main class="l-content" role="region" aria-label="Main content area">
+  {% if not node %}
+    {% embed '@repeat_dpl_june22/includes/pageheader.html.twig' %}
+    
+      {% block pageheader__title %}
+        <h1 class="pageheader__title">{{ page['#title'] }}</h1>
+      {% endblock %}
+    {% endembed %}
+
+    <div class="l-container">
+  {% endif %}
+
+    {{ page.content }}
+
+  {% if not node %}
+    </div>
+  {% endif %}
+</main>

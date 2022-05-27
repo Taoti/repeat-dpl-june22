@@ -1,0 +1,38 @@
+{# Process Fields #}
+{% set image = content.field_image_caption_image|field_value %}
+{% set caption = content.field_image_caption_caption|field_value %}
+
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'image-caption',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'image-caption-id--' ~ paragraph.id() %}
+{% set title_id = 'image-caption__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+{% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <figure {{ attributes }}>
+    <div class="image-caption__image">
+      {{ image }}
+    </div>
+
+    <figcaption class="image-caption__caption" id="{{ title_id }}">
+      <div class="l-image-caption__caption-text">
+        {{- caption -}}
+      </div>
+    </figcaption>
+  </figure>
+{% endblock paragraph %}

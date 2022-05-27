@@ -1,0 +1,21 @@
+name: repeat-dpl-june22
+type: theme
+description: Taoti's starter theme for new Drupal builds.
+package: Other
+core_version_requirement: ^8 || ^9
+base theme: classy
+hidden: false
+
+
+libraries:
+  - repeat_dpl_june22/global
+  - repeat_dpl_june22/what-input
+  - repeat_dpl_june22/normalize.css
+
+
+regions:
+  header: 'Header'
+  precontent: 'Precontent'
+  content: 'Content'
+  footer: 'Footer'
+  hidden: 'Hidden'

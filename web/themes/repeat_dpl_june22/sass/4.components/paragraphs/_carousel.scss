@@ -1,0 +1,141 @@
+.carousel {
+  margin-bottom: $spacing--vertical;
+
+
+  .l-carousel-container {
+    position: relative;
+    padding: 0 50px 50px;
+  }
+
+  .carousel__items {
+    margin: 0;
+  }
+
+
+  .carousel-arrow {
+    @include button--clean;
+    @include flex-center;
+    position: absolute;
+    top: calc(50% - 20px);
+    width: 40px;
+    height: 40px;
+    border-radius: 100%;
+    padding: 6px;
+    z-index: 1;
+    border: 2px solid white;
+    background-color: black;
+    transform: scale3d(0.95, 0.95, 0.95);
+    transition:
+      border-color $transition-speed ease-out,
+      background-color $transition-speed ease-out,
+      transform $transition-speed ease-out;
+
+    svg {
+      @include fluid-image-fill;
+      fill: white;
+      transition: fill $transition-speed ease-out,
+    }
+
+
+    &:hover,
+    &:active {
+      border-color: black;
+      background-color: white;
+      transform: scale3d(1, 1, 1);
+
+      svg {
+        fill: black;
+      }
+    }
+
+
+    &[disabled] {
+      visibility: hidden;
+      cursor: inherit;
+    }
+  }
+
+
+  .carousel-arrow--prev {
+    left: 0;
+  }
+
+  .carousel-arrow--next {
+    right: 0;
+
+    svg {
+      transform: rotateY(180deg);
+    }
+  }
+
+
+
+  .carousel-controls__pagination {
+    position: absolute;
+    bottom: 0;
+    left: 50px;
+    right: 50px;
+
+    .carousel-pagination {
+      @include flex-center;
+      list-style: none;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+
+      li + li {
+        margin-left: 8px;
+      }
+
+      .pagination-control {
+        @include button--clean;
+        height: 16px;
+        width: 16px;
+        transform: scale3d(0.8, 0.8, 0.8);
+        border-radius: 100%;
+        border: 2px solid black;
+        background-color: white;
+        transition:
+          background-color $transition-speed ease-out,
+          transform $transition-speed ease-out;
+
+        &:hover,
+        &:active {
+          background-color: #bce0fd;
+          transform: scale3d(1, 1, 1);
+        }
+      }
+
+      .slick-active .pagination-control {
+        background-color: black !important;
+      }
+    }
+  }
+
+
+  .carousel__link {
+    @include flex-center;
+    margin-top: 24px;
+  }
+}
+
+
+// styling for individual slides / items.
+.carousel-item {
+  margin: 0;
+
+  .carousel-item__image img {
+    @include fluid-image-fill;
+  }
+
+  .carousel-item__caption {
+    background: #efefef;
+    font-size: 16px;
+    padding: clamp(12px, 1.5vw, 24px);
+  }
+
+  .l-carousel-item__caption-text {
+    margin: 0 auto;
+    max-width: 1024px;
+  }
+}

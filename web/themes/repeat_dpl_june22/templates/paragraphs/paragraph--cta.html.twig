@@ -1,0 +1,72 @@
+{# Process Fields #}
+{% set background = content.field_cta_image.0['#media'].field_media_image.entity.uri.value %}
+
+{% if background is not empty %}
+  {% set background = file_url(background) %}
+  {% set style = 'background-image: url(' ~ background ~ ');' %}
+{% endif %}
+
+{% set title = content.field_cta_title|field_value %}
+{% set text = content.field_cta_text|field_value %}
+
+{% if content.field_cta_link[0]['#url'] is not empty %}
+  {% set link = {
+    'text': content.field_cta_link[0]['#title'],
+    'url': content.field_cta_link[0]['#url'].toString()
+  } %}
+{% endif %}
+
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'cta',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'cta-id--' ~ paragraph.id() %}
+{% set title_id = 'cta__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+
+{% if title %}
+  {% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+{% endif %}
+
+{% if style %}
+  {% set attributes = attributes.setAttribute('style', style) %}
+{% endif %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    <div class="l-cta__inner">
+
+      {% if title %}
+        <h2 class="cta__title" id="{{ title_id }}">
+          {{- title -}}
+        </h2>
+      {% endif %}
+
+      {% if text %}
+        <div class="cta__text">
+          {{- text -}}
+        </div>
+      {% endif %}
+
+      {% if link %}
+        <div class="cta__links">
+          <a href="{{ link.url }}" class="button button--primary">
+            {{- link.text -}}
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </article>
+{% endblock paragraph %}

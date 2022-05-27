@@ -1,0 +1,92 @@
+{# Process Fields #}
+{% set image = content.field_quote_image|field_value %}
+{% set name = content.field_quote_title|field_value %}
+{% set text = content.field_quote_description|field_value %}
+{% set position = content.field_quote_position|field_value %}
+{% set company = content.field_quote_company_name|field_value %}
+{% set since = content.field_quote_member_since|field_value %}
+
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'quote',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'quote-id--' ~ paragraph.id() %}
+{% set title_id = 'quote__title-id--' ~ paragraph.id() %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+{% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    <h2 class="visually-hidden" id="{{ title_id }}">Quote</h2>
+
+    <div class="l-quote__inner">
+
+      {% if image %}
+        <div class="quote__image-container">
+          <div class="quote__icon quote__icon--open">
+            {{ source(active_theme_path() ~ '/img/icons/icon--quote.svg', true) }}
+          </div>
+
+          <div class="quote__image">
+            {{ image }}
+          </div>
+
+          <div class="quote__icon quote__icon--close">
+            {{ source(active_theme_path() ~ '/img/icons/icon--quote.svg', true) }}
+          </div>
+        </div>
+      {% else %}
+        <div class="quote__icon">
+          {{ source(active_theme_path() ~ '/img/icons/icon--quote.svg', true) }}
+        </div>
+      {% endif %}
+
+      <div class="quote__text">
+        {{ text }}
+      </div>
+
+      {% if name or position or since or company %}
+        <div class="quote__attribution">
+
+          {% if name %}
+            <div class="quote__name">
+              {{- name -}}
+            </div>
+          {% endif %}
+
+          {% if position %}
+            <div class="quote__position">
+              {{- position -}}
+            </div>
+          {% endif %}
+
+          {% if since or company %}
+            <div class="quote__company-data">
+              {% set separator = since and company ? ', ' : '' %}
+
+              <span>
+                {{- company -}}
+                {{ separator}}
+                {{ since -}}
+              </span>
+            </div>
+          {% endif %}
+
+        </div>
+      {% endif %}
+
+    </div>
+  </article>
+{% endblock paragraph %}

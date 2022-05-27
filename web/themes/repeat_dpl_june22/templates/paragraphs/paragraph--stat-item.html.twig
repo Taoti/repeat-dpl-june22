@@ -1,0 +1,35 @@
+{# Process Fields #}
+{% set prefix = content.field_stat_item_number_prefix|field_value %}
+{% set number = content.field_stat_item_number|field_value %}
+{% set suffix = content.field_stat_item_number_suffix|field_value %}
+{% set description = content.field_stat_item_description|field_value %}
+
+{#
+  Utility variable for preserving space while numbers count up,
+  and adding a class for long numbers to reduce font scale.
+#}
+{% set spacer = prefix|render ~ number|render ~ suffix|render %}
+
+{# Markup #}
+{% block paragraph %}
+  <li class="stat-item {% if spacer|length > 7 %}-long-string{% endif %}">
+    <div class="stat-item__number">
+      {% if prefix is not empty -%}
+        <span>{{ prefix }}</span>
+      {%- endif -%}
+      <span
+        data-animateCount="true"
+        data-countUpTo="{{ number }}"
+      >0</span>
+      {%- if suffix is not empty -%}
+        <span>{{ suffix }}</span>
+      {%- endif -%}
+    </div>
+
+    <div class="decor--number-spacer" aria-hidden="true">{{ spacer }}</div>
+
+    <p class="stat-item__description">
+      {{- description -}}
+    </p>
+  </li>
+{% endblock paragraph %}

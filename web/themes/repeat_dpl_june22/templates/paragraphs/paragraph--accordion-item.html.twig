@@ -1,0 +1,53 @@
+{# Process Fields #}
+{% set title = content.field_accordion_item_title|field_value %}
+{% set accordion_content = content.field_accordion_item_content|field_value %}
+
+{# Build Attributes #}
+{%
+  set classes = [
+    'accordion-item',
+    'paragraph',
+    'paragraph--' ~ paragraph.bundle|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% set id = 'accordion-item-id--' ~ paragraph.id() %}
+{% set title_id = 'accordion-item__title-id--' ~ paragraph.id() %}
+{% set panel_id = id ~ '__panel' %}
+
+{% set attributes = create_attribute() %}
+{% set attributes = attributes.setAttribute('id', id) %}
+{% set attributes = attributes.addClass(classes) %}
+{% set attributes = attributes.setAttribute('aria-labelledby', title_id) %}
+
+{# Markup #}
+{% block paragraph %}
+  <article {{ attributes }}>
+    <h3 class="accordion-item__heading" id="{{ title_id }}">
+      <button
+        class="accordion-item__toggle"
+        aria-expanded="false"
+        aria-controls="{{ panel_id }}"
+      >
+        <span class="accordion-item__title">
+          {{- title -}}
+        </span>
+
+        <span class="accordion-item__icon" aria-hidden="true">
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </span>
+      </button>
+    </h3>
+
+    <div
+      class="accordion-item__panel text-formatted"
+      id="{{ panel_id }}"
+      role="region"
+      hidden
+    >
+      {{ accordion_content }}
+    </div>
+  </article>
+{% endblock paragraph %}
