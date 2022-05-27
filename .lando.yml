@@ -1,8 +1,8 @@
-name: drupal8
+name: repeat-dpl-june22
 
 config:
-#   site: pantheon site name
-#   id: pantheon site id
+  site: repeat-dpl-june22
+  id: 22347c92-8180-4443-aafc-c94744f85c5a 
   composer_version: '2-latest'
 
 tooling:
