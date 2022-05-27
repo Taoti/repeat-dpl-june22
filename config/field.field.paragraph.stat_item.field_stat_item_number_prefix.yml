@@ -1,0 +1,21 @@
+uuid: 02caccb3-fc65-40d8-ae8d-8a09bfca5ea7
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_stat_item_number_prefix
+    - paragraphs.paragraphs_type.stat_item
+_core:
+  default_config_hash: vNtR4NF4OOHbZL8M4kV23ecOuazOay5YLzeQDSHwrb0
+id: paragraph.stat_item.field_stat_item_number_prefix
+field_name: field_stat_item_number_prefix
+entity_type: paragraph
+bundle: stat_item
+label: 'Stat Item Number Prefix'
+description: 'An optional prefix to the stat number, such as <code>+</code>, <code>*</code>, <code>.</code>, <code>#</code>, <code>$</code>, etc.'
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

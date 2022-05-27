@@ -1,0 +1,17 @@
+uuid: a02f0b0d-2a6a-4dfe-a2e2-ad719a757e28
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: VDPzvpc-JoLSUVARCdspTKTfTf8VI4FMf7WG7eVXguw
+name: large
+label: 'Large (1024×1024)'
+effects:
+  ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d:
+    uuid: ddd73aa7-4bd6-4c85-b600-bdf2b1628d1d
+    id: image_scale
+    weight: 2
+    data:
+      width: 1024
+      height: 1024
+      upscale: false

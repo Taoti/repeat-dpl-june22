@@ -1,0 +1,21 @@
+uuid: 90aa010b-64a0-4385-830b-47eb53ccb582
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tabset_title
+    - paragraphs.paragraphs_type.tabset
+_core:
+  default_config_hash: kicYSP5o9MBGoruH0faxyLpzcVY86w5WNOP2jW_e6F0
+id: paragraph.tabset.field_tabset_title
+field_name: field_tabset_title
+entity_type: paragraph
+bundle: tabset
+label: 'Tabset Title'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

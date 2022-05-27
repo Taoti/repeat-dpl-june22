@@ -1,0 +1,12 @@
+uuid: 99b278ac-7369-4f6d-9600-b61418f00e57
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: N63_SLXqAzavEPfg9saz72HItJnbymlBWR7oCAim2ok
+id: impact_stats
+label: 'Impact Stats'
+icon_uuid: null
+icon_default: null
+description: 'Contains one or more Stat Items.'
+behavior_plugins: {  }

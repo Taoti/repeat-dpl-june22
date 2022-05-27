@@ -1,0 +1,33 @@
+uuid: f45bbbaf-aa2b-4418-94fd-161b800fdcd0
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.tab_item.field_tab_item_content
+    - field.field.paragraph.tab_item.field_tab_item_title
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - text
+_core:
+  default_config_hash: yZ4OuQD19gVkaWDGnLk-huBuYnj3Q-iHRMSdgy68tfA
+id: paragraph.tab_item.default
+targetEntityType: paragraph
+bundle: tab_item
+mode: default
+content:
+  field_tab_item_content:
+    type: text_default
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_tab_item_title:
+    type: string
+    label: hidden
+    settings:
+      link_to_entity: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

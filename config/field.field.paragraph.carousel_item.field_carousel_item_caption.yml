@@ -1,0 +1,21 @@
+uuid: 0bc28fd2-0d90-4284-8708-cb46f0430f1e
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_carousel_item_caption
+    - paragraphs.paragraphs_type.carousel_item
+_core:
+  default_config_hash: AR_ud8D7V_ZqwfXGWaY6xZPUMMrwu4EjA3pKfK3Gwg4
+id: paragraph.carousel_item.field_carousel_item_caption
+field_name: field_carousel_item_caption
+entity_type: paragraph
+bundle: carousel_item
+label: 'Carousel Item Caption'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string_long

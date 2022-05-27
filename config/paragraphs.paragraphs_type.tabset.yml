@@ -1,0 +1,12 @@
+uuid: e9e25261-901a-4b1e-84a1-b4904809976d
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: 06cltAsTQoKpM_WUMQKEREyHEtNereH0fJazckoAZqc
+id: tabset
+label: Tabset
+icon_uuid: null
+icon_default: null
+description: 'Contains one or more Tab Items.'
+behavior_plugins: {  }

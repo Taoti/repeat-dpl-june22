@@ -1,0 +1,12 @@
+uuid: 5248e45b-005a-4d69-b513-2c56913348c3
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: WmHHn71e7LXKu2hZicuW-AZwzHcJH4iNjYOrV_57_oI
+id: tab_item
+label: 'Tab Item'
+icon_uuid: null
+icon_default: null
+description: 'A tab that belongs inside of a Tabbed-Content paragraph.'
+behavior_plugins: {  }

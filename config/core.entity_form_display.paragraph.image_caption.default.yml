@@ -1,0 +1,35 @@
+uuid: d493f038-bd6a-48b0-9b80-fcf6a93b79b3
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.image_caption.field_image_caption_caption
+    - field.field.paragraph.image_caption.field_image_caption_image
+    - paragraphs.paragraphs_type.image_caption
+  module:
+    - media_library
+_core:
+  default_config_hash: eGyPsfMtATbJa6WwgEvhBqdOW3u025oHGECnnMQ16Qw
+id: paragraph.image_caption.default
+targetEntityType: paragraph
+bundle: image_caption
+mode: default
+content:
+  field_image_caption_caption:
+    weight: 1
+    settings:
+      rows: 5
+      placeholder: ''
+    third_party_settings: {  }
+    type: string_textarea
+    region: content
+  field_image_caption_image:
+    type: media_library_widget
+    weight: 0
+    settings:
+      media_types: {  }
+    third_party_settings: {  }
+    region: content
+hidden:
+  created: true
+  status: true

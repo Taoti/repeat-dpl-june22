@@ -1,0 +1,21 @@
+uuid: 0e9625df-55d4-4469-ac86-3c8fdbd49d53
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_title
+    - paragraphs.paragraphs_type.quote
+_core:
+  default_config_hash: nJsf0CXi2e35RttWlCWZwGcPgQbxdUZKb0WqkcWmT0A
+id: paragraph.quote.field_quote_title
+field_name: field_quote_title
+entity_type: paragraph
+bundle: quote
+label: 'Quote Title'
+description: ''
+required: false
+translatable: true
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

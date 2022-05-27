@@ -1,0 +1,23 @@
+uuid: 38c05b95-2ba4-4697-ae25-603985b83a5b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tab_item_content
+    - paragraphs.paragraphs_type.tab_item
+  module:
+    - text
+_core:
+  default_config_hash: MsN_UrnpG_A9AhIImF4IJhBcoyV4tjxC0ZrfNrHdGYk
+id: paragraph.tab_item.field_tab_item_content
+field_name: field_tab_item_content
+entity_type: paragraph
+bundle: tab_item
+label: 'Tab Item Content'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

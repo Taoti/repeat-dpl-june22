@@ -1,0 +1,23 @@
+uuid: a7fcc66e-5ab5-4f83-9462-43d45bbd1eaf
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_accordion_item_content
+    - paragraphs.paragraphs_type.accordion_item
+  module:
+    - text
+_core:
+  default_config_hash: hW-RKAjBuBoUsLN6-_OlW5TdU68BOGOlZ3_6dDRdzUg
+id: paragraph.accordion_item.field_accordion_item_content
+field_name: field_accordion_item_content
+entity_type: paragraph
+bundle: accordion_item
+label: 'Accordion Item Content'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: text_long

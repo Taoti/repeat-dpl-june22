@@ -1,0 +1,17 @@
+uuid: bb6f4d10-9b93-4daa-86b1-15cf07eb3049
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: rUIaO7SiZadwgspHv4uW0ga_niXtn8V10lsz_pnnUUU
+name: small
+label: 'Small (420x420)'
+effects:
+  0176df8e-e8e4-469a-9386-3925ee851237:
+    uuid: 0176df8e-e8e4-469a-9386-3925ee851237
+    id: image_scale
+    weight: 0
+    data:
+      width: 420
+      height: 420
+      upscale: false

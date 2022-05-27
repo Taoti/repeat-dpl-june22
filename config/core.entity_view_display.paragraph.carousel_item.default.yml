@@ -1,0 +1,32 @@
+uuid: 732c8a4c-abc0-4f58-b0a4-493802095985
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.field.paragraph.carousel_item.field_carousel_item_caption
+    - field.field.paragraph.carousel_item.field_carousel_item_image
+    - paragraphs.paragraphs_type.carousel_item
+_core:
+  default_config_hash: i4PARY0Wu2l9R2T0vxISkj-KH5uIjnqIkC3SZ4Qe3fk
+id: paragraph.carousel_item.default
+targetEntityType: paragraph
+bundle: carousel_item
+mode: default
+content:
+  field_carousel_item_caption:
+    type: basic_string
+    label: hidden
+    settings: {  }
+    third_party_settings: {  }
+    weight: 1
+    region: content
+  field_carousel_item_image:
+    type: entity_reference_entity_view
+    label: hidden
+    settings:
+      view_mode: default
+      link: false
+    third_party_settings: {  }
+    weight: 0
+    region: content
+hidden: {  }

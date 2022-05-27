@@ -1,0 +1,12 @@
+uuid: 280db5fa-bb48-4eed-88ca-c38e1dd9d22c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: EIlIVttNBGuVqFFCsF__i70yFftMD3IF3IPIbQ2ylWY
+id: stat_item
+label: 'Stat Item'
+icon_uuid: null
+icon_default: null
+description: 'A stat item that belongs inside of an Impact Stats paragraph.'
+behavior_plugins: {  }

@@ -1,0 +1,12 @@
+uuid: b33913b0-10c2-4152-98aa-2cf4f18622d1
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: OwivbP0IKsq2K66faRh9emHpk-k7DJdlzql8hnd8-fo
+id: carousel_item
+label: 'Carousel Item'
+icon_uuid: null
+icon_default: null
+description: 'A slide that belongs inside of a Carousel.'
+behavior_plugins: {  }

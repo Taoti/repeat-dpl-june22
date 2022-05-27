@@ -1,0 +1,17 @@
+uuid: 2579b3dc-5e23-4a64-b8a0-e5b53800b4e6
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: Mby2cBd2wyl0bLaie5zuKVn7Yc47UwYqdI9OwW8biK8
+name: medium
+label: 'Medium (768x768)'
+effects:
+  bddf0d06-42f9-4c75-a700-a33cafa25ea0:
+    uuid: bddf0d06-42f9-4c75-a700-a33cafa25ea0
+    id: image_scale
+    weight: 1
+    data:
+      width: 768
+      height: 768
+      upscale: false

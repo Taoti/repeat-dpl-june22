@@ -1,0 +1,21 @@
+uuid: 1142a9ae-ff8e-479d-93b1-c877e12dd939
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+    - text
+_core:
+  default_config_hash: uL1GOa-2vX-DyOGKdBdBnymXOODW2V7J_aFMlBft840
+id: paragraph.field_wysiwyg
+field_name: field_wysiwyg
+entity_type: paragraph
+type: text_long
+settings: {  }
+module: text
+locked: false
+cardinality: -1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

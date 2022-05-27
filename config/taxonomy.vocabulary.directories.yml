@@ -1,0 +1,8 @@
+uuid: ce57cfe8-eb6c-4db8-82df-18a72fdf787f
+langcode: en
+status: true
+dependencies: {  }
+name: Directories
+vid: directories
+description: 'This vocabulary is for media directory'
+weight: 0

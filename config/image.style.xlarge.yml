@@ -1,0 +1,17 @@
+uuid: 30b8d4e4-1bc7-4d8c-ba79-549547fe8a8c
+langcode: en
+status: true
+dependencies: {  }
+_core:
+  default_config_hash: VRmzm5KE4VBzhok2oC_3na5sxZE4PWAyASIz4qB5M_U
+name: xlarge
+label: 'XLarge (1366x1366)'
+effects:
+  a0973bc5-1674-4423-a3cc-6adc4b427c66:
+    uuid: a0973bc5-1674-4423-a3cc-6adc4b427c66
+    id: image_scale
+    weight: 3
+    data:
+      width: 1366
+      height: 1366
+      upscale: false

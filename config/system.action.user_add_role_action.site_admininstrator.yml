@@ -1,0 +1,16 @@
+uuid: 29c513ea-f345-4eb4-9b89-c86925beee84
+langcode: en
+status: true
+dependencies:
+  config:
+    - user.role.site_admininstrator
+  module:
+    - user
+_core:
+  default_config_hash: GG_KS0rwmcPu4CAvo0e3es9sCrmmLpVdGiAdwQ8jG8o
+id: user_add_role_action.site_admininstrator
+label: 'Add the Site Admininstrator role to the selected user(s)'
+type: user
+plugin: user_add_role_action
+configuration:
+  rid: site_admininstrator

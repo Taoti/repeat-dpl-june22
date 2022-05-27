@@ -1,0 +1,21 @@
+uuid: 7a9c96d7-eb66-4a4c-aa3e-e374b5bf0f0b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_quote_position
+    - paragraphs.paragraphs_type.quote
+_core:
+  default_config_hash: D5FFSKfxW8KpeL4O75uWScutzW-p1PGm38ODDKqXOWc
+id: paragraph.quote.field_quote_position
+field_name: field_quote_position
+entity_type: paragraph
+bundle: quote
+label: 'Quote Position'
+description: ''
+required: false
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string

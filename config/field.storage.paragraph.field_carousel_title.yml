@@ -1,0 +1,23 @@
+uuid: 8a11f6df-a1db-47a6-a185-49d3ef57d72c
+langcode: en
+status: true
+dependencies:
+  module:
+    - paragraphs
+_core:
+  default_config_hash: stRFm0UGhMYfSOBxk_ZU7K1PCeD9AJnQgs89qUcNTbU
+id: paragraph.field_carousel_title
+field_name: field_carousel_title
+entity_type: paragraph
+type: string
+settings:
+  max_length: 255
+  case_sensitive: false
+  is_ascii: false
+module: core
+locked: false
+cardinality: 1
+translatable: true
+indexes: {  }
+persist_with_no_fields: false
+custom_storage: false

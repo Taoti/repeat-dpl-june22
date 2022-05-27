@@ -1,0 +1,21 @@
+uuid: b5126588-16b4-408c-8fae-e2644aceb53b
+langcode: en
+status: true
+dependencies:
+  config:
+    - field.storage.paragraph.field_tab_item_title
+    - paragraphs.paragraphs_type.tab_item
+_core:
+  default_config_hash: C2fOttVsR8IX-Uj8o2eQoDblCf0GYyW_OVLKJ4-2zS4
+id: paragraph.tab_item.field_tab_item_title
+field_name: field_tab_item_title
+entity_type: paragraph
+bundle: tab_item
+label: 'Tab Item Title'
+description: ''
+required: true
+translatable: false
+default_value: {  }
+default_value_callback: ''
+settings: {  }
+field_type: string
